@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='test.css') }}">
+    <title>Test Page</title>
+    <style>
+        /* Hide the test content by default */
+        .test-content {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <header>
+            <h1>Test Platform</h1>
+            <div id="timer">25:00</div>
+        </header>
+        <main>
+            <div class="test-content">
+                <div class="question-container" id="questionContainer">
+                    <!-- Question and options will be dynamically populated here -->
+                </div>
+                <div class="navigation-container">
+                    <form id="testForm" action="/TestAnalytics" method="post">
+                    <button id="prevBtn" disabled>Previous</button>
+                    <button id="saveNextBtn">Save and Next</button>
+                    <button id="submitTestBtn" name="selc_answers">Submit Test</button>
+                    </form>
+                </div>
+                
+            </div>
+            <!-- Button to enable fullscreen mode -->
+            <button id="fullscreenBtn">Enable Fullscreen Mode</button>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='test.js') }}"></script>
+    <script>
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     const fullscreenBtn = document.getElementById('fullscreenBtn');
+        //     const testContent = document.querySelector('.test-content');
+        //     const startTestBtn = document.getElementById('startTestBtn');
+        
+        //     // Event listener for the fullscreen button
+            
+        // });
+        var test_ques_data = {{ test_data | tojson | safe }};
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Visualizations</title> 
+    <style> 
+        .loading-icon {
+            display: none; /* Initially hide the loading icon */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px auto;
+            padding: 0;
+            background-color: #f4f4f4;
+            max-width: 80%;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .card {
+            flex: 0 0 100%; /* Adjust width to occupy the entire row for the first card */
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card:not(:first-child) {
+            flex: 0 0 40%; /* Adjust width to fit the desired number of cards per row */
+        }
+        
+        .card .content {
+            padding: 20px;
+        }
+        
+        .card .image {
+            padding: 20px;
+            text-align: right;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px !important;
+        }
+
+        h1, h2 {
+            color: #333;
+            top:0;
+            margin-top: 30px;
+            
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px auto;
+            border-radius: 8px;
+           
+        }
+        
+        p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        .go-back-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style> 
+</head> 
+<body> 
+    <h1> Analytics </h1>
+    <div class="container">
+        <div class="card">
+            <div class="content">
+                <h2>Result</h2>
+                <div class="image">
+                    <img src="{{ url_for('static', filename=path ~ '/vis1.png') }}" alt="Result">
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="content">
+                <h2>Skills</h2>
+                <div class="image">
+                    <img src="{{ url_for('static', filename=path ~ '/vis2.png') }}" alt="Skills">
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="content">
+                <h2>DS Domain Performance</h2>
+                <!-- <div class="image">
+                    <img src="{{ url_for('static', filename=path ~ '/vis5.png') }}" alt="DS Domain Performance">
+                </div> -->
+                {% for row in data %}
+                <div>
+                    <p>{{row[0]}}.{{row[1]}}</p>
+                    <p>{{row[2]}} {{row[3]}}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+    </div>
+    <div id="loadingIcon" class="loading-icon">
+        <!-- Place your loading icon here (e.g., spinner or animated GIF) -->
+        Loading...
+    </div>
+    <div class="go-back-btn">
+        <button><a href="/Analytics" style="text-decoration: none;color:white;">view more analytics</a></button>
+    </div>
+    <script>
+         // Function to handle test completion and redirection with transition
+         function completeTestAndRedirect() {
+            // Show the loading icon
+            const loadingIcon = document.getElementById('loadingIcon');
+            loadingIcon.style.display = 'block';
+
+            // Simulate a delay for demonstration purposes
+            setTimeout(function () {
+                // Redirect to analytics page after 2 seconds
+                window.location.href = "/TestAnalytics?testCompleted=true";
+            }, 2000); // 2000 milliseconds = 2 seconds
+        }
+
+        // Example: Trigger the test completion and redirection on some event (e.g., button click)
+        document.addEventListener('DOMContentLoaded', function () {
+            const submitTestBtn = document.getElementById('submitTestBtn');
+            submitTestBtn.addEventListener('click', function () {
+                completeTestAndRedirect();
+            });
+        });
+    </script>
+    
+</body>
+</html>

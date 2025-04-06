@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='instructions.css') }}">
+    <title>Test Instructions</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='logo2.jpeg') }}" alt="Logo" class="logo-image">
+            <h1>Test Platform</h1>
+            <nav>
+                <a href="/home" style="color:white;">Home</a>
+                <a href="/Test_page" style="color:white;">Back to Test Selection</a>
+            </nav>
+        </header>
+
+        <main>
+            <h2>Test Instructions</h2>
+            <p>Welcome to the online test platform. Please read and understand the instructions before starting the
+                test.</p>
+
+            <h3>Test Information</h3>
+            <p>Domain: <span id="selectedDomain">{{domain}}</span></p>
+            <p>Test: <span id="selectedTest">{{test_table[0]}}</span></p>
+            <p>Topics Covered: <span id="topicsCovered">{{test_table[2]}}</span></p>
+
+            <h3>General Instructions</h3>
+            <ol>
+                <li>You have 25 minutes to complete the test.</li>
+                <li>Use the navigation buttons to move between questions.</li>
+                <!-- Add more general instructions as needed -->
+            </ol>
+
+            <h3>Specific Instructions</h3>
+            <p>[Instructions specific to the selected domain and test type]</p>
+
+            <div class="center-container">
+                <label for="agreeCheckbox">
+                    <input type="checkbox" id="agreeCheckbox"> I have read and understood the instructions.
+                </label>
+
+            </div>
+            <form id="instForm" action="/Test" method="post">
+            <div class="butonn">
+                <button id="startTestBtn" disabled onclick="startTest('{{test_table[1]}}')">Start Test</button>
+            </div>
+            <input type="hidden" id="instOption" name="inst_option">
+            </form>
+        </main>
+
+        <footer>
+            <p>Contact: [Contact Information]</p>
+            <p>Copyright © [2024] <a href="#">Privacy Policy</a></p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='instructions.js') }}"></script>
+
+
+    
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+/* CSS for the "Personal Information" section */
+#personal-info {
+    display: flex;
+    justify-content: space-between;
+    /* Space items evenly */
+    align-items: center;
+    /* Center vertically */
+}
+
+/* CSS for the text content */
+.personal-info-content {
+    flex: 1;
+    /* Take remaining space */
+}
+
+/* CSS for the image */
+.personal-info-image {
+    max-width: 100px;
+    /* Adjust image width as needed */
+}
+
+/* Rest of your CSS styles */
+/* Reset default margin and padding */
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for profile container */
+.profile-container {
+    max-width: 600px;
+    /* Adjust as needed */
+    margin: 20px auto;
+    /* Center the profile container */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    /* Use flexbox for layout */
+    flex-direction: column;
+    /* Stack sections vertically */
+    align-items: center;
+    /* Center items horizontally */
+}
+
+/* Style for profile sections */
+/* Style for profile sections */
+.profile-section {
+    width: 100%; /* Remove this line */
+    max-width: 500px; /* Add this line or adjust the width as needed */
+    /* Each section takes up a maximum width of 500px, adjust as needed */
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+
+/* Style for horizontal lines */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px 0;
+}
+
+/* .profile-container2 {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+} */
+
+

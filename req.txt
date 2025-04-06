@@ -1,0 +1,70 @@
+CREATE TABLE domain_tests (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    domain VARCHAR(120),
+    test_table VARCHAR(120)
+);
+Hover over a message to pin it
+keep
+You
+10:03 PM
+INSERT INTO domain_tests (domain, test_table)
+VALUES
+    ('web development', 'Web_Tests'),
+    ('Data Science', 'DS_Tests'),
+    ('Cyber Security', 'CS_Tests'),
+    ('Cloud Computing', 'Cloud_Tests');
+You
+10:07 PM
+CREATE TABLE ds_tests (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    tests VARCHAR(120),
+    questions_table VARCHAR(120),
+    Topics VARCHAR(1024)
+);
+INSERT INTO ds_tests (tests, questions_table, Topics)
+VALUES
+    ('Test 1', 'questions', 'PYTHON,CPP,OS,LINUX');
+You
+10:09 PM
+CREATE TABLE web_tests (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    tests VARCHAR(120),
+    questions_table VARCHAR(120),
+    Topics VARCHAR(200)
+);
+
+INSERT INTO web_tests (tests, questions_table, Topics)
+VALUES
+    ('Test 1', 'questions', 'PYTHON,CPP,OS,LINUX'),
+    ('Test 2', 'questions', 'PYTHON,CPP,OS,LINUX');
+You
+10:11 PM
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255),
+    phone VARCHAR(255),
+    gender VARCHAR(255),
+    qualification VARCHAR(255),
+    areas VARCHAR(2048)
+);
+CREATE TABLE questions (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    question VARCHAR(1024),
+    option_A VARCHAR(100),
+    option_B VARCHAR(100),
+    option_C VARCHAR(100),
+    option_D VARCHAR(100),
+    difficulty VARCHAR(50),
+    skill VARCHAR(120),
+    correct_answer VARCHAR(30)
+);
+
+pip install scikit-learn
+pip install matplotlib
+pip install flask
+
+pip install mysql-connector-python
+
+pip install pandas

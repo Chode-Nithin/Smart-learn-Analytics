@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='instructions.css') }}">
+    <title>Test Instructions</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='logo2.jpeg') }}" alt="Logo" class="logo-image">
+            <h1>Test Platform</h1>
+            <nav>
+                <a href="/home" style="color:white;">Home</a>
+                <a href="/Test_page" style="color:white;">Back to Test Selection</a>
+            </nav>
+        </header>
+
+        <main>
+            <h2>Test Instructions</h2>
+            <p>Welcome to the online test platform. Please read and understand the instructions before starting the
+                test.</p>
+
+            <h3>Test Information</h3>
+            <p>Domain: <span id="selectedDomain">{{domain}}</span></p>
+            <p>Test: <span id="selectedTest">{{test_table[0]}}</span></p>
+            <p>Topics Covered: <span id="topicsCovered">{{test_table[2]}}</span></p>
+
+            <h3>General Instructions</h3>
+            <ol>
+                <li>You have 25 minutes to complete the test.</li>
+                <li>Test contains 25 Questions</li>
+                <li>Read each question and all options carefully before selecting your answer.</li>
+                <li>This test consists of single-choice questions. Select the best answer for each question.</li>
+                <li>Click on the radio button next to the answer you believe is correct. Only one answer is allowed per question.</li>
+                <li>You can navigate between questions using the "Previous" and "Next" buttons. Review your answers before submitting.</li>
+                <li>If you're unsure about a question, you can skip it and come back to it later using the navigation buttons.</li>
+                <li>Pay attention to any time limits specified for the test. The timer will be displayed at the top of the page.</li>
+                <li>Once you have completed all questions and reviewed your answers, click the "Submit" button to finish the test. You will not be able to change your answers after submission.</li>
+                <li>If time permits, review your answers before submitting the test to ensure accuracy.</li>
+                <li>Please complete the test on your own without any external assistance or resources.</li>
+                <li>In case of any technical issues or concerns during the test, please contact the administrator for assistance.</li>
+                <li>Best of luck with your test. Start when you're ready!</li>
+            </ol>
+
+            <div class="center-container">
+                <label for="agreeCheckbox">
+                    <input type="checkbox" id="agreeCheckbox"> I have read and understood the instructions.
+                </label>
+
+            </div>
+            <form id="instForm" action="/Test" method="post">
+            <div class="butonn">
+                <button id="startTestBtn" disabled onclick="startTest('{{test_table[1]}}')">Start Test</button>
+            </div>
+            <input type="hidden" id="instOption" name="inst_option">
+            </form>
+        </main>
+
+        <footer>
+            <p>Contact: [Contact Information]</p>
+            <p>Copyright © [2024] <a href="#">Privacy Policy</a></p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='instructions.js') }}"></script>
+
+
+    
+</body>
+
+</html>

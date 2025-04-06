@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.container {
+  width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container2 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.container2 a {
+  text-decoration: none;
+  color: #2a9647;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.header-btn {
+  flex-grow: 1;
+  margin: 0 5px;
+  background-color: #8ddda3;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.header-btn.active {
+  background-color: #2a9647;
+}
+
+.form-container {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.input-container {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="tel"],
+input[type="password"] {
+  width: calc(100% - 20px); /* Adjust as needed */
+  padding: 10px;
+  border: 1px solid #2a9647;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+
+.submit-btn {
+  width: 100%;
+  background-color: #2a9647;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #1e6e3e;
+}
+
+a {
+  text-decoration: none;
+  color: #2a9647;
+  float: right;
+}
+
+a:hover {
+  text-decoration: underline;
+}

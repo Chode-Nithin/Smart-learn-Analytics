@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='main_page/styles.css') }}">
+</head>
+<body>
+  <script>
+        // Check if the message variable is defined
+        {% if message %}
+            // Get the message from Flask passed as a variable
+            var message = "{{ message }}";
+            
+            // Display the alert message
+            alert(message);
+        {% endif %}
+    </script>
+  <div class="container">
+    <div id="loginForm" class="form-container">
+      <h2>Login</h2>
+        {% if error %}
+      <p>{{ error }}</p>
+      {% endif %}
+      <form action="/login" method="post"> <!-- Changed the action to home.html -->
+        <div class="input-container">
+          <input type="text" id="loginEmail" name="username" placeholder="Email/Username" required>
+        </div>
+        <div class="input-container">
+          <input type="password" id="loginPassword" name = "password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="submit-btn">Login</button> <!-- Removed the <a> tag from the button -->
+        <div class="container2">
+          <a href="#">Forgot password?</a>
+          <a href="/signup">New to portal? Sign Up</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='main_page/scripts.js') }}"></script>
+</body>
+</html>

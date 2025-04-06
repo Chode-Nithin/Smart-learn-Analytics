@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .answer {
+            margin-bottom: 30px;
+        }
+        .go-back-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Help</h1>
+
+        <div class="question">
+            <h2>How to create an account?</h2>
+            <div class="answer">
+                <p>To create an account, click on the 'Sign up' button on the home page. 
+                    Fill out the required information<br> such as your email, username, and password,
+                     then click 'Sign Up' to complete the process.
+                </p>
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>How to access tests?</h2>
+            <div class="answer">
+                <p>To access tests, log in to your account and navigate to the 'Tests' section. You should be able to see a list of available tests. Click on the test you want to take to begin.</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>How many tests do we need to get recommendations?</h2>
+            <div class="answer">
+                <p>The candidate should take at least 3 tests to capture the insights. 
+                    However, the number of tests required to receive recommendations may vary 
+                    depending on the platform's algorithm and your activity. 
+                    Generally, the more tests you take, 
+                    the better the recommendations become as the system learns 
+                    more about your preferences and abilities.
+                </p>
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>Can we have domain-based tests?</h2>
+            <div class="answer">
+                <p>Yes, we offer domain-based tests in various subjects and areas of expertise. You can explore different categories or domains to find tests that match your interests or professional requirements.</p>
+            </div>
+        </div>
+        <div class="go-back-btn">
+            <button onclick="goBack()">Go Back to Home Page</button>
+        </div>
+        <script>
+            function goBack() {
+                window.location.href = "/helproute";
+            }
+        </script>
+    </div>
+</body>
+</html>

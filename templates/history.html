@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Activity History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .card {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .chart-and-score {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        
+        .chart-container {
+            flex: 1;
+        }
+        
+        .score-box {
+            flex: 1;
+            margin-left: 40px;
+            padding: 10px;
+        }
+        
+        .score-box ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .score-box ul li {
+            margin-bottom: 5px;
+        }
+        
+        .score-label {
+            display: inline-block;
+            width: 20px;
+            height: 10px;
+            margin-right: 5px;
+            border-radius: 2px;
+        }
+        
+        .go-back-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Activity History</h2>
+        <!-- Sample data -->
+        <div class="student-info">
+            <h3>Name: {{username}}</h3>
+            <p>ID: {{id}}</p>
+        </div>
+
+        <!-- Tests taken card -->
+        <div class="card">
+            <h3>Tests Taken</h3>
+            <p>Total: {{history|length}}</p>
+        </div>
+
+        <!-- Marks table -->
+        <div class="card">
+            <h3>Marks Summary</h3>
+            <table>
+                <tr>
+                    <th>Test Name</th>
+                    <th>Domain Name</th>
+                    <th>Score</th>
+                    <th>Right Answers</th>
+                    <th>Wrong Answers</th>
+                    <th>Unanswered</th>
+                </tr>
+                <form id="testForm" action="/TestAnalytics" method="post">
+                {% for entry in history%}
+                <tr>
+                    <td><a href="#" onclick="submitForm('{{entry[0]}}')" style="text-decoration:none !important; color:black;">{{entry[1]}}</a></td>
+                    <td>{{entry[2]}}</td>
+                    <td>{{entry[3]}}</td>
+                    {% for item in entry[4] | json_to_list %}
+                        <td>{{ item }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+                <input type="hidden" id="testOption" name="test_option">
+                </form>
+                <!-- Add more rows as needed -->
+            </table>
+        </div>
+        <!-- Login information -->
+        <!-- <div class="card">
+            <h3>Login Information</h3>
+            <p>Logged in 10 times</p>
+            <p>Last active: 2024-03-01</p>
+        </div> -->
+
+        
+        <div class="go-back-btn">
+            <button><a href="/home" style="text-decoration: none;color:white;">Go back to home page</a></button>
+        </div>
+        
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        function submitForm(option) {
+        console.log(option)
+        console.log("deffff")
+        document.getElementById('testOption').value = option;
+        document.getElementById('testForm').submit();
+    }
+    </script>
+    
+
+</body>
+</html>

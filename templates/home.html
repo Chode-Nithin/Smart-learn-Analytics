@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+    .open-sans-heading {
+        font-family: sans-serif; 
+        font-optical-sizing: auto;
+        font-weight: 600; 
+        font-style: normal;
+        font-size: 60px;
+        font-variation-settings: "wdth" 100;
+    }
+    .roboto-condensed-heading {
+        font-family: serif; 
+        font-optical-sizing: auto;
+        font-weight: 500; 
+        font-style: normal;
+    }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Smart Analytics System</title>
+</head>
+
+<body>
+    <div class="header-container">
+        <div class="header-left">
+            <!-- Logo and Heading -->
+            <div class="logo-heading">
+                <img src="{{ url_for('static', filename='icons/logo_8.png') }}" alt="Logo" class="logo-image">
+                <header class="system-header">
+                    <h1 class="open-sans-heading">Smart Analytics System</h1>
+                    <p class="open-sans-heading" style=" margin-top:15px; font-size:19.5px;">"Discover your talents. Develop your skills. Realize your career goals."</p>
+                </header>
+            </div>
+        </div>
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <a href="/Profile">
+                <img src="{{ url_for('static', filename='icons/profile-pic.png.png') }}" alt="Profile Image" class="profile-image">
+            </a>
+            
+        </div>
+    </div>
+    
+    
+    
+
+    <div class="nav-section">
+        <nav>
+            <ul>
+                <li><a href="/Take_test">Take Test</a></li>
+                <li><a href="/Analytics">Analytics</a></li>
+                <li><a href="/Recommendations">Recommendations</a></li>
+                <li><a href="/History">History</a></li>
+                <li><a href="/Help">Help</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="paragraph-content">
+        <div class="card_container">
+            <div class="card card1">
+                <div class="card_image">
+                    <img src="{{ url_for('static', filename='icons/test-prep-software.png') }}" style="width:50px;height:auto;" alt="Test Portal Icon">
+                </div>
+                <h3>Test Portal</h3>
+                <p>Offers various tests for personal and professional development.</p>
+            </div>
+            
+            <div class="card card2">
+                <div class="card_image">
+                    <div class="card_image">
+                        <img src="{{ url_for('static', filename='icons/promotional-tests.png') }}" style="width:50px;height:auto;" alt="Results Icon">
+                    </div>
+                    
+                </div>
+                <h3>Analytics</h3>
+                <p>Provides detailed analysis and<br> insights based on test results.</p>
+            </div>
+            <div class="card card3">
+                <div class="card_image">
+                    <img src="{{ url_for('static', filename='icons/job_analysis.png') }}" style="width:50px;height:auto;" alt="Job Recommendations Icon"> 
+                </div>
+                <h3>Job Recommendations</h3>
+                <p>
+                    Offers personalized job recommendations<br> based on test results.
+                </p>
+            </div>
+            <div class="card card4">
+                <div class="card_image">
+                    <img src="{{ url_for('static', filename='icons/exam.png') }}" style="width:50px;height:auto;" alt="Exam Recommendations Icon"> 
+                </div>
+                <h3>Exam Recommendations</h3>
+                <p>
+                    Provides tailored recommendations for<br> exams and certifications.
+                </p> 
+            </div>
+        </div>
+    <div>
+    <div class="p_container">
+        <div class="content">
+            <div class="grid-container">
+                <div class="row">
+                    <div class="card_r">
+                        <div class="card-content_r">
+                            <h3><i class='fas fa-user-plus' style="font-size:24px; margin:5px;padding:2px;"></i>Create your Account</h3>
+                            <p>To access the tests in the portal you need to have an account create an unique account and complete your profile.</p>
+                        </div>
+                    </div>                         
+                    <div class="card_r">
+                        <div class="card-content_r">
+                            <h3><img src="{{ url_for('static', filename='icons/test.png') }}" alt="Icon Image" width="30" height="30">
+                                Take Tests</h3>
+                            <p>Take tests after logging in based on domains and monitor the evaluations for performance assessment.</p>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="row">
+                    <div class="card_r">
+                        <div class="card-content_r">
+                            <h3><img src="{{ url_for('static', filename='icons/statistics.png') }}" alt="Icon Image" width="30" height="30" style="margin-right: 5px;padding-left:2px;margin-top:-2px;">View Results &amp; Analytics</h3>
+                            <p> After completion of test, Scores and analytics will be calculated and shown through the visualizatio in a detailed report.</p>
+                        </div>
+                    </div>
+                    <div class="card_r">
+                        <div class="card-content_r">
+                            <h3><img src="{{ url_for('static', filename='icons/recommendation.png') }}" alt="Icon Image" width="30" height="30" style="margin-right: 5px;padding-left:2px;margin-top:-2px;">Get Recommendations</h3>
+                            <p> Candidates with strong skill sets receive job recommendations, while those with weak skill sets receive exam recommendations.
+                            </p>
+                        </div>
+                    </div>            
+                </div>
+            </div>
+            <div class="image">
+                <img src="{{ url_for('static', filename='icons/learning_1.svg') }}" alt="Your Image">
+            </div>
+        </div>
+    </div>
+    <div class="footer_container">
+        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+            <div class="col mb-3">
+            <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+              <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+            </a> 
+            </div>
+            <div class="col mb-3">
+                <h5>Features</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Test</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Exam Types</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Feature assessments</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Academics assessments</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">API Integration</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Question Bank</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Exam Analytics</a></li>
+                </ul>
+            </div>
+          
+            <div class="col mb-3">
+                <h5>Education Management</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Generative Tests</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Result</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Skill Evaluation</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Career Path Assessment</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"></a>Career Build System</li>
+                </ul>
+            </div>
+          
+            <div class="col mb-3">
+                <h5>About Us</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"></a>Case Study</li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Blog</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="col mb-3">
+                <h5>Useful Links</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQ</a></li>
+                </ul>
+            </div>
+            </footer>
+            <footer style="margin: -10px;margin-top:-20px">
+                <p class="text-body-secondary" style="text-align:right; color: white !important;">
+                    &copy; copy rights 2024</p>
+            </footer>
+        </div>
+
+</body>
+
+</html>

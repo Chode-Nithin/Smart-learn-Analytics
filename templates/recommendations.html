@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations Page</title>
+    <style>
+        /* Your CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 80vw;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .section-heading {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .recommendations {
+            margin-bottom: 20px;
+            display: flex; /* Change from grid to flex for better alignment */
+            flex-wrap: wrap;
+        }
+        
+        .recommendations > div {
+            flex: 1; /* Each recommendation section takes equal space */
+            margin-bottom: 20px;
+        }
+        
+        .recommendations h2 {
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 40px !important;
+            margin-left: 10px !important;
+        }
+        
+        li {
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin-bottom: 12px !important;
+            gap: 5px;
+        }
+        
+        .go-back-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        /* Added styles for new skills and weak skills */
+        .skills,
+        .weak-skills {
+            width: 100%;
+        }
+        
+        .skills h2,
+        .weak-skills h2 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        
+        .skills ul,
+        .weak-skills ul {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .skills li,
+        .weak-skills li {
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+        
+        .exam-recommendations canvas,
+        .job-recommendations canvas {
+            width: 100%;
+            height: 200px; /* Adjust height as needed */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recommendations Page</h1>
+        
+        <div class="recommendations">
+            <div class="job-recommendations">
+                <h2 class="section-heading">Strong Skills</h2>
+                <p>Below are the skills where you are strong:</p>
+                <canvas id="jobRecommendationsChart"></canvas>
+            </div>
+
+            <div class="skills">
+                <h2 class="section-heading">Job Recommendations</h2>
+                <p>Below are the recommendations for job positions based on your skills and expertise:</p>
+                <ul>
+                    {% for job in rec_jobs%}
+                    <li>{{job}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="recommendations">
+            <div class="exam-recommendations">
+                <h2 class="section-heading">Weak Skills</h2>
+                <p>Below are the skills where improvement is needed:</p>
+                <canvas id="examRecommendationsChart"></canvas>
+            </div>
+
+            <div class="weak-skills">
+                <h2 class="section-heading">Exam Recommendations</h2>
+                <p>These are the recommendations for exams that may help improve your skills further:</p>
+                <ul>
+                    {% for exams in rec_exms%}
+                    <li>{{exams}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="go-back-btn">
+            <button onclick="goBack()">Go Back to Home Page</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+    function repeatColor(color, times) {
+        const repeatedColors = [];
+        for (let i = 0; i < times; i++) {
+            repeatedColors.push(color);
+        }
+        return repeatedColors;
+    }
+
+    const backgroundColors_sskill = repeatColor('rgba(75, 192, 192, 0.6)', {{ strong_skills | length }});
+    const backgroundColors_wskill = repeatColor('rgba(255, 99, 132, 0.6)', {{ strong_skills | length }});
+
+
+
+        const sskills = {
+            labels: {{ strong_skills | tojson }},
+            datasets: [{
+                label: 'Strong Skills',
+                data:{{ strong_skills_vals | tojson }},
+                backgroundColor: backgroundColors_sskill,
+                borderColor: backgroundColors_sskill,
+                borderWidth: 1
+            }]
+        };
+        
+        const wskills = {
+            labels: {{ weak_skills | tojson }},
+            datasets: [{
+                label: 'Weak Skills',
+                data: {{ weak_skills_vals | tojson }},
+                backgroundColor: backgroundColors_wskill,
+                borderColor: backgroundColors_wskill,
+                borderWidth: 1
+            }]
+        };
+
+        window.onload = function() {
+            var jobRecommendationsCtx = document.getElementById('jobRecommendationsChart').getContext('2d');
+            var jobRecommendationsChart = new Chart(jobRecommendationsCtx, {
+                type: 'bar',
+                data: sskills
+            });
+
+            var examRecommendationsCtx = document.getElementById('examRecommendationsChart').getContext('2d');
+            var examRecommendationsChart = new Chart(examRecommendationsCtx, {
+                type: 'bar',
+                data: wskills
+            });
+        };
+
+        function goBack() {
+            window.location.href = "/home";
+        }
+    </script>
+</body>
+</html>
+
+
+

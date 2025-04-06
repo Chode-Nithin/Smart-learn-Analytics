@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Student Profile Page Design Example</title>
+    <meta name="author" content="Codeconvey" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+    <!-- Only for demo purpose - no need to add. -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS_for_Profile/demo.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS_for_Profile/styles.css') }}">
+</head>
+<body>
+    
+    <header class="ScriptHeader">
+        <div class="rt-container">
+            <div class="col-rt-12">
+                <div class="rt-heading">
+                    <h1 style="color:white !important; font-size:50px;">PROFILE PAGE</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="rt-container">
+            <div class="col-rt-12">
+                <div class="Scriptcontent">
+                    <div class="student-profile py-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card shadow-sm">
+                                        <div class="card-header bg-transparent text-center">
+                                            <img class="profile_img" src="{{ url_for('static', filename='icons/profile-pic-removebg-preview.png') }}" alt="student dp">
+                                            <h3>John Doe</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="card shadow-sm">
+                                        <div class="card-header bg-transparent border-0">
+                                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+                                        </div>
+                                        <div class="card-body pt-0">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th width="30%">Email</th>
+                                                    <td width="2%">:</td>
+                                                    <td>johndoe3121@gmail.com</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Qualification</th>
+                                                    <td width="2%">:</td>
+                                                    <td>B-Tech-2024</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Gender</th>
+                                                    <td width="2%">:</td>
+                                                    <td>Male</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div style="height: 26px"></div>
+                                    <div class="card-header bg-transparent border-0">
+                                        <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Other Information</h3>
+                                    </div>
+                                    <div>
+                                        <div class="card-body2 pt-0">
+                                            <h4>Areas of Interest:</h4>
+                                            <button class="edit-button">Edit</button>
+                                            
+                                        </div>
+                                        <ul>
+                                            <li>Machine Learning </li>
+                                            <!-- Add more if needed -->
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="card-body2 pt-0">
+                                            <h4>Certifications Earned:</h4>
+                                            <button class="edit-button">Edit</button>
+                                            
+                                        </div>
+                                        <ul>
+                                            <li>Certified Web Developer </li>
+                                            <!-- Add more if needed -->
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="card-body2 pt-0">
+                                            <h4>Projects:</h4>
+                                            <button class="edit-button">Edit</button>
+                                            
+                                        </div>
+                                        <ul>
+                                            <li>Project A: Description of Project A </li>
+                                            <!-- Add more if needed -->
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="ScriptTop">
+        <div class="rt-container">
+            <div class="col-rt-2 d-flex justify-content-center">
+                <ul>
+                    <li><a href="/home" title="Back to Home page">Back to Home Page</a></li>
+                    <li><a href="/logout" title="Logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Get all edit buttons
+       // Get all edit buttons
+        var editButtons = document.querySelectorAll('.edit-button');
+
+        // Loop through each edit button and add event listener
+        editButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                // Get the parent card body of the clicked edit button
+                var cardBody = this.parentElement;
+
+                // Prompt the user to enter new content
+                var newContent = prompt("Enter new content:");
+
+                // Update the content of the corresponding section
+                cardBody.innerHTML = "<h4>" + cardBody.querySelector('h4').innerText + "</h4><ul><li>" + newContent + "</li></ul>";
+                // You may want to use more advanced logic to handle lists of items here
+            });
+        });
+
+    </script>
+    
+</body>
+</html>

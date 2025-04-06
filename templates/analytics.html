@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .marks-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .marks-section p {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .student-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .go-back-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .chart {
+            flex: 1;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        .chart h2 {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .chart img {
+            width: 100%; /* Adjust this value to your desired width */
+            height: auto; /* Adjust this value to your desired height */
+            border-radius: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Analytics Page</h1>
+        
+        <div class="marks-section">
+            <!-- <div class="marks">
+                <p>Marks Scored: 85%</p>
+            </div> -->
+            <div class="student-name">
+                <p>Name: {{username}}</p>
+            </div>
+        </div>
+
+
+        <div class="chart-container">
+            <div class="chart">
+                <h2>Skill Acquisition</h2>
+                <img src="{{ url_for('static', filename=path ~ '/vis3.png') }}" alt="Skill Acquisition Image">
+            </div>
+
+            <div class="chart">
+                <h2>Domain Based Performance</h2>
+                    <form action="/Analytics" method="POST">
+                        <label for="domain">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Choose a Domain:</label>
+                        <select id="domains" name="selected_domain">
+                        {% for option in d_options %}
+                            {% if option == selected_domain %}
+                            <option value="{{ option }}" selected>{{ option }}</option>
+                            {% else %}
+                            <option value="{{ option }}">{{ option }}</option>
+                            {% endif %}
+                        {% endfor %}
+                        </select>
+                        <button type="submit">Analyze</button>
+                    </form>
+                <img src="{{ url_for('static', filename=path ~ '/vis5.png') }}" alt="Domain Based Performance Image">
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart">
+                <h2>Skill Based Performance</h2>
+                <form action="/Analytics" method="POST">
+        <label for="skill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Choose a skill:</label>
+        <select id="skills" name="selected_skill">
+          {% for option in s_options %}
+            {% if option == selected_skill %}
+              <option value="{{ option }}" selected>{{ option }}</option>
+            {% else %}
+              <option value="{{ option }}">{{ option }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+        <button type="submit">Analyze</button>
+      </form>
+                <img src="{{ url_for('static', filename=path ~ '/vis6.png') }}" alt="Domain Based Performance Image">
+            </div>
+            <div class="chart">
+                <h2>Overall Performance Comparison</h2>
+                <img src="{{ url_for('static', filename=path ~ '/vis4.png') }}" alt="Overall Performance Comparison Image">
+            </div>            
+        </div>        
+
+        <div class="go-back-btn">
+            <button onclick="goBack()">Go Back to Home Page</button>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.location.href = "/home";
+        }
+    </script>
+</body>
+</html>
